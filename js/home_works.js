@@ -1,12 +1,13 @@
-
 const gmailInput = document.getElementById('gmail_input');
 const gmailButton = document.getElementById('gmail_button');
 const gmailResult = document.getElementById('gmail_result');
+const childBlock = document.querySelector('.child_block');
+const parentBlock = document.querySelector('.parent_block');
+
 
 const gmailRegex = /^[a-zA-Z0-9._-]+@gmail\.com$/;
-
 function checkGmail() {
-    
+     
     const email = gmailInput.value.trim();
 
     if (gmailRegex.test(email)) {
@@ -33,26 +34,64 @@ if (gmailInput) {
 
 
 
-const childBlock = document.querySelector('.child_block');
-const parentBlock = document.querySelector('.parent_block');
 
-let currentPosition = 0;
+
+// дз2
+
+
+
+let positionX = 0;
+let positionY = 0;
+
+const toRight = parentBlock.clientWidth - childBlock.clientWidth;
+const toButton = parentBlock.clientHeight - childBlock.clientHeight;
+
+
 
 function moveBlock() {
-    if (!childBlock || !parentBlock) return;
-
-   
-    const maxPosition = parentBlock.clientWidth - childBlock.clientWidth;
-
-    if (currentPosition < maxPosition) {
-        currentPosition += 2; 
-        childBlock.style.left = `${currentPosition}px`;
-
-        
-        setTimeout(moveBlock, 10); 
+    if (positionX < toRight && positionY === 0) {
+        positionX ++;
+        childBlock.style.left = `${positionX}px`;
+    } else if (positionX >= toRight && positionY < toButton) {
+        positionY ++;
+        childBlock.style.top = `${positionY}px`;
+    } else if (positionY >= toButton && positionX > 0) {
+        positionX --;
+        childBlock.style.left = `${positionX}px`;
+    } else if (positionX === 0 && positionY > 0) {
+        positionY --;
+        childBlock.style.top = `${positionY}px`;
     }
+    requestAnimationFrame(moveBlock)
 }
+moveBlock(); 
 
+const time = document.querySelector("#seconds");
+const startBtn = document.querySelector("#start");
+const stopBtn = document.querySelector("#stop");
+const resetBtn = document.querySelector("#reset");
 
-window.addEventListener('load', moveBlock);
+let seconds = 0;
+let interval = null;
+
+startBtn.addEventListener('click', () => {
+    if (interval === null) {
+        interval = setInterval(() => {
+            seconds++;
+            time.textContent = seconds;
+        }, 1000);
+    }
+});
+
+stopBtn.addEventListener('click', () => {
+    clearInterval(interval);
+    interval = null;
+});
+
+resetBtn.addEventListener('click', () => {
+    clearInterval(interval);
+    interval = null;
+    seconds = 0;
+    time.textContent = seconds;
+});
 
