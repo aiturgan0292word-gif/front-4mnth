@@ -80,3 +80,6 @@ const converter = (element, otherElement,anyElement  ) => {
 converter (somInput , usdInput,eurInput);
 converter (usdInput,somInput ,eurInput);
 converter (eurInput,usdInput, somInput);
+
+
+

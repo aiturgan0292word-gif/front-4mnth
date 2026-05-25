@@ -15,3 +15,38 @@
     "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBylqDK3pgrRMnI75TyFJ6yszY_gz3lNIaiQ&s"
   }
 ]
+
+
+
+
+
+[
+  {
+    "id": 1,
+    "name": "Mikasa",
+    "age": 19,
+    "description": "Сильная и преданная",
+    "person_photo": "https://upload.wikimedia.org/wikipedia/en/0/0f/Mikasa_Ackerman.png"
+  },
+  {
+    "id": 2,
+    "name": "Killua",
+    "age": 14,
+    "description": "Быстрый и опасный",
+    "person_photo": "https://upload.wikimedia.org/wikipedia/en/4/4d/Killua_Zoldyck.png"
+  },
+  {
+    "id": 3,
+    "name": "Itachi",
+    "age": 21,
+    "description": "Легенда клана Учиха",
+    "person_photo": "https://upload.wikimedia.org/wikipedia/en/b/bb/Itachi_Uchiha.png"
+  },
+  {
+    "id": 4,
+    "name": "Nezuko",
+    "age": 14,
+    "description": "Демон с добрым сердцем",
+    "person_photo": "https://upload.wikimedia.org/wikipedia/en/4/4c/Nezuko_Kamado.png"
+  }
+]
